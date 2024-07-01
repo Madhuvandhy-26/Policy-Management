@@ -16,12 +16,12 @@ public class PolicyMaintenance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long maintenance_id;
+    Long maintenanceId;
 
-    Long policy_id;
+    Long policyId;
     String action;
     String details;
-    Long performed_by; // agent id FK
-    String performed_at;
+    Long performedBy; // agent id FK
+    String performedAt;
 
 }

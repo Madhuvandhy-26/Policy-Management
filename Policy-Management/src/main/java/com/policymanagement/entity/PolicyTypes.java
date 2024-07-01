@@ -1,12 +1,11 @@
 package com.policymanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -16,8 +15,11 @@ public class PolicyTypes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long policy_type_id;
-    String type_name;
+    Long policyTypeId;
+    String typeName;
     String description;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "policyTypes")
+    List<Policies> listOfPolicies;
 
 }
